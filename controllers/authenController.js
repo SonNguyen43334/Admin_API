@@ -97,11 +97,6 @@ const authenController = {
   },
   logout: async (req, res) => {
     try {
-      // Đảm bảo rằng token đã được gửi trong tiêu đề Authorization của yêu cầu
-      const token = req.headers.authorization;
-      // Xóa token từ cơ sở dữ liệu hoặc lưu trữ nơi bạn đã lưu trữ token
-      await TokenModel.deleteOne({ token });
-      // Trả về một phản hồi xác nhận rằng token đã được hủy bỏ thành công
       res.status(200).json({ message: "Logout successful" });
     } catch (error) {
       res.status(500).json({ message: "Internal server error" });
