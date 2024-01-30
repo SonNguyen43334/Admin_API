@@ -3,6 +3,10 @@ const {Account} = require('../modules/module');
 const AccountController = {
     addAccount: async (req, res) => {
         // res.status(200).json(req.body);
+        const existingAccount = await Account.findOne({ userName : req.body.userName });
+        if (existingAccount){
+            return res.status(400).json({ error: 'UserName already exists, please try another!'});
+        }
         try {
             const newAccount = new Account(req.body);
             const savedAccount = await newAccount.save();
