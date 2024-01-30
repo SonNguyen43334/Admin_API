@@ -39,12 +39,18 @@ const AccountController = {
     updateAccountbyId: async (req, res) => {
         const userId = req.params.userId;
         const updateData = req.body;
+    
+        // Loại bỏ các trường không cho phép cập nhật
+        delete updateData.userName;
+        delete updateData.userID;
+    
         try {
             const updatedAccount = await Account.findOneAndUpdate(
                 { userID: userId },
-                updateData,
-                { new: true } // Trả về tài khoản đã được cập nhật
+                { $set: updateData }, // Sử dụng $set để chỉ cập nhật các trường cần thiết
+                { new: true, runValidators: true } // Trả về tài khoản đã được cập nhật và chạy validators
             );
+    
             if (updatedAccount) {
                 res.status(200).json(updatedAccount);
             } else {
@@ -54,6 +60,7 @@ const AccountController = {
             res.status(500).json(err);
         }
     },
+    
     deleteAccount: async (req, res) => {
         const userId = req.params.userId;
         try {
