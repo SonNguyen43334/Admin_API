@@ -1,6 +1,5 @@
 const { artService } = require("../model/model");
 
-// let nextServiceID = 1;
 const artServiceController = {
 
     // Add service
@@ -87,25 +86,6 @@ const artServiceController = {
             res.status(500).json(err);
         }
     },
-
-    //Get service list by Creator
-    // getServiceListByCreator: async (req, res) => {
-    //     try {
-    //         const creatorID = req.params.creatorID;
-    //         // Find all artistic services associated with the specified creatorID
-    //         const services = await artService.find({ creator: creatorID });
-        
-    //         if (!services || services.length === 0) {
-    //             return res.status(404).json({ message: 'No artistic services found for this creator.' });
-    //         }
-        
-    //         // Return the list of artistic services
-    //         res.status(200).json({ services });
-    //     } catch (error) {
-    //         console.error(error);
-    //         res.status(500).json({ message: 'Internal Server Error' });
-    //     }
-    // },
 };
 
 module.exports = artServiceController;
