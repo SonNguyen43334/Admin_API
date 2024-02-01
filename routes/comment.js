@@ -6,7 +6,7 @@ const router = require("express").Router();
 router.post("/", commentController.addComment); 
 
 //find comment by artworkId
-router.get("/api/artwork/:artworkId/", commentController.getComment);
+router.get("/api/users/:userId/artwork/:artworkId/", commentController.getComment);
 
 
 

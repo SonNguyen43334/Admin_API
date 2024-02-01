@@ -5,6 +5,6 @@ const router = require("express").Router();
 
 router.post("/", searchArtworkController.addArtwork); 
 
-router.get("/api/creator/:creatorID/", searchArtworkController.searchArtwork);
+router.get("/api/user/:userID/", searchArtworkController.searchArtwork);
 
 module.exports = router;

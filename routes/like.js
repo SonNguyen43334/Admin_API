@@ -6,6 +6,6 @@ const router = require("express").Router();
 router.post("/", likeController.addLike); 
 
 //find like by artworkId
-router.get("/api/artwork/:artworkId/", likeController.getLike);
+router.get("/api/users/:userId/artwork/:artworkId/", likeController.getLike);
 
 module.exports = router;

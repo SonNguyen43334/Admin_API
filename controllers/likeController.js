@@ -13,8 +13,9 @@ const likeController = {
 
     getLike: async(req, res) => {
         const artworkId = req.params.artworkId;
+        const userId = req.params.userId;
         try {
-            const likes = await like.findOne({artworkID: artworkId});
+            const likes = await like.findOne({artworkID: artworkId, userID: userId});
             res.status(200).json(likes);
         } catch (err) {
             res.status(500).json(err);

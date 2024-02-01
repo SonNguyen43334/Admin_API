@@ -13,9 +13,9 @@ const searchArtworkController = {
     },
 
     searchArtwork: async(req, res) => {
-        const creatorId = req.params.creatorID;
+        const userId = req.params.userID;
         try {
-            const likes = await artwork.findOne({creatorID: creatorId});
+            const likes = await artwork.findOne({userID: userId});
             res.status(200).json(likes);
         } catch (err) {
             console.log(err);

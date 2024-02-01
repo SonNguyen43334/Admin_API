@@ -16,7 +16,7 @@ const artworkSchema = new mongoose.Schema({
         type: String, 
         required: true,
     }, 
-    creatorID: {
+    userID: {
         type: String, 
         required: true,
     }, 
@@ -24,7 +24,7 @@ const artworkSchema = new mongoose.Schema({
         type: Number
     }, 
     premium: {
-        type: String
+        type: Boolean
     }, 
     typeID: {
         type: String, 
@@ -74,8 +74,18 @@ const userSchema = new mongoose.Schema({
         required: true,
     }, 
     roleID: {
-        type: String, 
+        type: Number, 
         required: true,
+    }, 
+    status: {
+        type: Boolean, 
+        required: true,
+    }, 
+    followerID: {
+        type: String
+    }, 
+    followingID: {
+        type: String
     }
 });
 
@@ -93,7 +103,7 @@ const likeSchema = new mongoose.Schema({
         required: true,
     }, 
     status: {
-        type: String
+        type: Boolean
     }, 
     likeTime: {
         type: String
@@ -112,6 +122,9 @@ const cartSchema = new mongoose.Schema({
     cartDate: {
         type: String, 
         required: true,
+    }, 
+    description: {
+        type: String
     }
 });
 

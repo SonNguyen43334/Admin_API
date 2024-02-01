@@ -12,8 +12,9 @@ const commentController = {
     },
     getComment: async(req, res) => {
         const artworkId = req.params.artworkId;
+        const userId = req.params.userId;
         try {
-            const comments = await comment.findOne({artworkID: artworkId});
+            const comments = await comment.findOne({artworkID: artworkId, userID: userId});
             res.status(200).json(comments);
         } catch (err) {
             console.log(err);
