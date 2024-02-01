@@ -4,7 +4,6 @@ const Artwork = require("./artworksModel")
 const userSchema = new mongoose.Schema({
   userID: {
     type: String,
-    required: true,    
   },
   username: {
     type: String,
@@ -26,6 +25,15 @@ const userSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "Artwork"
     }
+  ],
+  status :{
+    type: Boolean,
+  },
+  followerID: [
+    {type: String}
+  ],
+  followingID: [
+    {type: String}
   ]
 });
 

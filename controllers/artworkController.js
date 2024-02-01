@@ -29,9 +29,10 @@ const artworkController = {
   },
   getAnArtwork: async (req, res) => {
     try {
-      const artwork = await Artwork.findById(req.params._id).populate(
-        "creatorID"
-      );
+      const artwork = await Artwork.findById(req.params._id).populate({
+        path: "creatorID",
+        select: "name",
+      });
       if (!artwork) {
         return res.status(404).json({ message: "Artwork not found" });
       }
